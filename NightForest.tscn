@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb1qxey1cgjl"]
+
+[ext_resource type="Texture2D" uid="uid://m4tal5de00ep" path="res://Background/NightForest/1.png" id="1_nv2ni"]
+[ext_resource type="Texture2D" uid="uid://c1ac81eopij2c" path="res://Background/NightForest/2.png" id="2_qg5i7"]
+[ext_resource type="Texture2D" uid="uid://wm8wqj6fqcym" path="res://Background/NightForest/3.png" id="3_cfpqi"]
+[ext_resource type="Texture2D" uid="uid://bu4u5my2pp8f0" path="res://Background/NightForest/4.png" id="4_x04bb"]
+[ext_resource type="Texture2D" uid="uid://bgx63pa01qfks" path="res://Background/NightForest/6.png" id="6_veapv"]
+
+[node name="Stage1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(620, 0)
+
+[node name="texture" type="TextureRect" parent="ParallaxBackground/Background"]
+texture_filter = 1
+offset_right = 620.0
+offset_bottom = 360.0
+texture = ExtResource("1_nv2ni")
+stretch_mode = 1
+
+[node name="Background2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(620, 0)
+
+[node name="texture" type="TextureRect" parent="ParallaxBackground/Background2"]
+texture_filter = 1
+offset_right = 620.0
+offset_bottom = 360.0
+texture = ExtResource("2_qg5i7")
+stretch_mode = 1
+
+[node name="Background3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(620, 0)
+
+[node name="texture" type="TextureRect" parent="ParallaxBackground/Background3"]
+texture_filter = 1
+offset_right = 620.0
+offset_bottom = 360.0
+texture = ExtResource("3_cfpqi")
+stretch_mode = 1
+
+[node name="Background4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(620, 0)
+
+[node name="texture" type="TextureRect" parent="ParallaxBackground/Background4"]
+texture_filter = 1
+offset_right = 620.0
+offset_bottom = 360.0
+texture = ExtResource("4_x04bb")
+stretch_mode = 1
+
+[node name="Background6" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 2
+texture_filter = 1
+position = Vector2(0, -35)
+motion_mirroring = Vector2(620, 0)
+
+[node name="texture" type="TextureRect" parent="ParallaxBackground/Background6"]
+texture_filter = 1
+offset_top = 35.0
+offset_right = 620.0
+offset_bottom = 395.0
+scale = Vector2(1, 0.997222)
+texture = ExtResource("6_veapv")

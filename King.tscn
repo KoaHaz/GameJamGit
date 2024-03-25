@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbjxkjm0dowbo"]
+
+[ext_resource type="Texture2D" uid="uid://dex4q6a1yfps0" path="res://MainCharacter/Idle.png" id="1_syjy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiftj"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(0, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq2ap"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(160, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tetcp"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(320, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy8lq"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(480, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_284i4"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(640, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipmgr"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(800, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0agsr"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(960, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqmss"]
+atlas = ExtResource("1_syjy5")
+region = Rect2(1120, 0, 160, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_547k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiftj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tetcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_284i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipmgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqmss")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="King" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_547k2")
+autoplay = "default"

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfm5eb1ejinik"]
+
+[ext_resource type="Script" path="res://MainGame.gd" id="1_8jwie"]
+[ext_resource type="PackedScene" uid="uid://cb1qxey1cgjl" path="res://NightForest.tscn" id="1_hq87b"]
+[ext_resource type="PackedScene" uid="uid://b2ysbjtqmiho5" path="res://MainCharacter.tscn" id="2_cvan2"]
+[ext_resource type="PackedScene" uid="uid://tcgy323hll7e" path="res://MainUI.tscn" id="3_w35me"]
+[ext_resource type="AudioStream" uid="uid://b5b0x7rcov18j" path="res://Musics/Action 5 (Loop).wav" id="5_wjtxr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tyk8b"]
+distance = -360.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv5jt"]
+size = Vector2(16, 175)
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_8jwie")
+
+[node name="Background" parent="." instance=ExtResource("1_hq87b")]
+
+[node name="MainCharacter" parent="." instance=ExtResource("2_cvan2")]
+position = Vector2(112, 332)
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+position = Vector2(0, -53)
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.54
+drag_right_margin = 0.5
+drag_bottom_margin = 0.47
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_tyk8b")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-6, 273.5)
+shape = SubResource("RectangleShape2D_dv5jt")
+
+[node name="MainUI" parent="." instance=ExtResource("3_w35me")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wjtxr")
+volume_db = -3.429
+autoplay = true

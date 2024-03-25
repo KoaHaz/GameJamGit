@@ -1,0 +1,178 @@
+[gd_scene load_steps=25 format=3 uid="uid://cdo53fexga6bt"]
+
+[ext_resource type="Script" path="res://EndGame.gd" id="1_8v0rv"]
+[ext_resource type="Shader" path="res://scroll.gdshader" id="1_v1o4p"]
+[ext_resource type="Texture2D" uid="uid://djhic1yl6h5r3" path="res://Background/NightForest/Image without mist.png" id="2_ylomw"]
+[ext_resource type="Texture2D" uid="uid://s5tt0vg3ehpb" path="res://UI/GUI.png" id="3_yqjy0"]
+[ext_resource type="Texture2D" uid="uid://c7ypjoitjeiqw" path="res://UI/Pixel UI pack 1.png" id="4_4pskd"]
+[ext_resource type="FontFile" uid="uid://4khiskw82ig5" path="res://DungeonFont.ttf" id="5_x5lir"]
+[ext_resource type="AudioStream" uid="uid://dpp4elurhlyyc" path="res://Musics/Victory.wav" id="7_tg2dp"]
+[ext_resource type="PackedScene" uid="uid://cbjxkjm0dowbo" path="res://King.tscn" id="9_ewrdy"]
+[ext_resource type="PackedScene" uid="uid://c60f8mohgdyui" path="res://loser.tscn" id="10_1kie7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fxmc"]
+shader = ExtResource("1_v1o4p")
+shader_parameter/speed = 0.02
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0eae"]
+atlas = ExtResource("3_yqjy0")
+region = Rect2(80, 96, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8sxpr"]
+font = ExtResource("5_x5lir")
+font_size = 100
+shadow_size = 15
+shadow_color = Color(0.0156863, 0.196078, 0.235294, 1)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8upif"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(705, 33, 78, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gmyy"]
+texture = SubResource("AtlasTexture_8upif")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orwox"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(577, 33, 78, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bassd"]
+texture = SubResource("AtlasTexture_orwox")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpnlp"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(833, 33, 78, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r16bb"]
+texture = SubResource("AtlasTexture_jpnlp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u23gb"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(449, 449, 62, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxvdc"]
+texture = SubResource("AtlasTexture_u23gb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uljp"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(385, 449, 62, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tectv"]
+texture = SubResource("AtlasTexture_2uljp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qwvo"]
+atlas = ExtResource("4_4pskd")
+region = Rect2(513, 449, 62, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqqkq"]
+texture = SubResource("AtlasTexture_0qwvo")
+
+[node name="EndGame" type="CanvasLayer"]
+script = ExtResource("1_8v0rv")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5fxmc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ylomw")
+
+[node name="Menu" type="NinePatchRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -328.0
+offset_right = 348.0
+offset_bottom = 409.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_l0eae")
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -297.5
+offset_right = 374.0
+offset_bottom = -197.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "Monster Slayer"
+label_settings = SubResource("LabelSettings_8sxpr")
+
+[node name="State" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = -237.5
+offset_right = -112.0
+offset_bottom = -137.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.196078, 0.603922, 0.254902, 1)
+theme_override_colors/font_shadow_color = Color(0.0156863, 0.196078, 0.235294, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("5_x5lir")
+theme_override_font_sizes/font_size = 100
+text = "You Win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 27.0
+offset_right = 103.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0gmyy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bassd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r16bb")
+
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 526.0
+offset_right = 451.0
+offset_bottom = 629.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_oxvdc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tectv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aqqkq")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tg2dp")
+autoplay = true
+
+[node name="Node2D" parent="." instance=ExtResource("9_ewrdy")]
+visible = false
+position = Vector2(760, 480)
+
+[node name="Node2D2" parent="." instance=ExtResource("10_1kie7")]
+visible = false
+position = Vector2(1212, 636)
+
+[connection signal="pressed" from="Menu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

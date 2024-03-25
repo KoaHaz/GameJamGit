@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://tcgy323hll7e"]
+
+[ext_resource type="Texture2D" uid="uid://b6v4qmaw6paeo" path="res://UI/healthbarUnder.png" id="1_2jl8n"]
+[ext_resource type="Script" path="res://MainUI.gd" id="1_c6a0j"]
+[ext_resource type="Texture2D" uid="uid://43m46sddv131" path="res://UI/healthbarProgress.png" id="2_tlhj5"]
+[ext_resource type="Script" path="res://TextureProgressBar.gd" id="3_2vl1i"]
+[ext_resource type="FontFile" uid="uid://4khiskw82ig5" path="res://DungeonFont.ttf" id="4_n5b1k"]
+[ext_resource type="Texture2D" uid="uid://c7ypjoitjeiqw" path="res://UI/Pixel UI pack 1.png" id="6_70mql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j71f8"]
+bg_color = Color(0.00392157, 0.0901961, 0.109804, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfknm"]
+atlas = ExtResource("6_70mql")
+region = Rect2(705, 33, 78, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wac1p"]
+atlas = ExtResource("6_70mql")
+region = Rect2(577, 33, 78, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkiw7"]
+atlas = ExtResource("6_70mql")
+region = Rect2(833, 33, 78, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pa7h"]
+atlas = ExtResource("6_70mql")
+region = Rect2(449, 449, 62, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye8rd"]
+atlas = ExtResource("6_70mql")
+region = Rect2(385, 449, 62, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r788f"]
+atlas = ExtResource("6_70mql")
+region = Rect2(513, 449, 62, 30)
+
+[node name="MainUI" type="CanvasLayer"]
+script = ExtResource("1_c6a0j")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -280.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j71f8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
+layout_mode = 2
+offset_left = 777.0
+offset_top = 66.0
+offset_right = 1049.0
+offset_bottom = 90.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_2jl8n")
+texture_progress = ExtResource("2_tlhj5")
+script = ExtResource("3_2vl1i")
+
+[node name="Restart" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 160.0
+offset_bottom = 74.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_sfknm")
+texture_pressed = SubResource("AtlasTexture_wac1p")
+texture_hover = SubResource("AtlasTexture_fkiw7")
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 156.0
+offset_right = 160.0
+offset_bottom = 194.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_6pa7h")
+texture_pressed = SubResource("AtlasTexture_ye8rd")
+texture_hover = SubResource("AtlasTexture_r788f")
+stretch_mode = 0
+
+[node name="Health" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 433.0
+offset_top = 50.0
+offset_right = 587.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_n5b1k")
+theme_override_font_sizes/font_size = 25
+text = "HP: 10000/10000"
+
+[node name="Level" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1224.0
+offset_top = 144.0
+offset_right = 1294.0
+offset_bottom = 170.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_n5b1k")
+theme_override_font_sizes/font_size = 25
+text = "LEVEL:"
+
+[node name="Damage" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 304.0
+offset_top = 138.0
+offset_right = 404.0
+offset_bottom = 164.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_n5b1k")
+theme_override_font_sizes/font_size = 25
+text = "DAMAGE:"
+
+[node name="Vote" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1240.0
+offset_top = 50.0
+offset_right = 1298.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_n5b1k")
+theme_override_font_sizes/font_size = 25
+text = "VOTE:"
+
+[connection signal="pressed" from="Panel/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
